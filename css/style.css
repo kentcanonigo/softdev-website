@@ -3078,8 +3078,35 @@ video {
   border: 3px solid #38b6ff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  overflow: hidden;
   cursor: pointer;
+  background: #fff;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+
+.photo1:hover{
+  transform: translateY(-5px);
+}
+
+.photo1:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 176, 155, 0.3), rgba(61, 94, 201, 0.5));
+  transition: 0.5s all;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.photo1:hover:before{
+  opacity: 1;
+  pointer-events: none;
 }
 
 .photo1 img{
@@ -3089,8 +3116,24 @@ video {
   transition: .2s linear;
 }
 
-.photo1:hover > img{
-  animation: pulse 660ms ease-in-out;
+.photo-info{
+  margin-bottom: 10px;
+  margin-left: 10px;
+  pointer-events: none;
+}
+
+.photo1 .photo-info{
+  position: absolute;
+  z-index: 300;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s all;
+}
+
+.photo1:hover .photo-info{
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 .popup-image {
@@ -3132,3 +3175,4 @@ video {
     scale: 1.04;
   }
 }
+
